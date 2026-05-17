@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nadine Solutions — GHL Automation for Small Business</title>
+<meta name="description" content="Nadine Solutions helps small businesses unlock the power of GoHighLevel CRM, AI, and automation — so you can grow without the chaos."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#07111F;
+  --navy2:#0D1E35;
+  --navy3:#122540;
+  --teal:#00C9B1;
+  --teal-dim:#00C9B122;
+  --teal-mid:#00C9B155;
+  --amber:#F5A623;
+  --amber-dim:#F5A62320;
+  --white:#F7F9FC;
+  --slate:#8A9BC0;
+  --slate2:#4A5F80;
+  --text:#E8EFF8;
+  --text-muted:#8A9BC0;
+  --border:#1E3558;
+  --card:#0F1E33;
+  --card2:#0A1828;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--slate2);border-radius:99px}
+
+/* ── SELECTION ── */
+::selection{background:var(--teal);color:var(--navy)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5%;
+  background:rgba(7,17,31,0.7);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(30,53,88,0.5);
+  transition:padding .3s;
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:1.25rem;
+  color:#fff;letter-spacing:-.5px;
+  text-decoration:none;
+}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  color:var(--slate);font-size:.9rem;font-weight:400;
+  text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--teal);color:var(--navy);
+  font-family:'DM Sans',sans-serif;
+  font-weight:600;font-size:.85rem;
+  padding:.6rem 1.3rem;border-radius:8px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:opacity .2s,transform .15s;
+}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--slate);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;inset:0;top:70px;background:var(--navy2);z-index:99;padding:2rem 5%;flex-direction:column;gap:1.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--text);font-size:1.1rem;text-decoration:none;font-weight:500;padding:.75rem 0;border-bottom:1px solid var(--border)}
+
+/* ── SECTIONS ── */
+section{padding:6rem 5%}
+.container{max-width:1100px;margin:0 auto}
+.section-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:500;
+  color:var(--teal);letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.section-tag::before{content:'';width:18px;height:1px;background:var(--teal)}
+h1,h2,h3{font-family:'Syne',sans-serif;font-weight:800;line-height:1.1;letter-spacing:-.5px}
+h1{font-size:clamp(2.4rem,5.5vw,4rem)}
+h2{font-size:clamp(1.8rem,3.5vw,2.6rem)}
+h3{font-size:1.2rem;font-weight:700}
+.highlight{color:var(--teal)}
+.amber{color:var(--amber)}
+p{color:var(--text-muted);line-height:1.75}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding-top:6rem;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,201,177,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 70%, rgba(245,166,35,.05) 0%, transparent 60%);
+}
+.hero-grid-canvas{position:absolute;inset:0;opacity:.18}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+  max-width:1100px;margin:0 auto;width:100%;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(0,201,177,.1);border:1px solid rgba(0,201,177,.25);
+  border-radius:100px;padding:.4rem 1rem .4rem .6rem;
+  font-size:.78rem;font-weight:500;color:var(--teal);
+  margin-bottom:1.5rem;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{margin-bottom:1.25rem;color:#fff}
+.hero-sub{font-size:1.05rem;color:var(--slate);margin-bottom:2rem;max-width:480px;line-height:1.75}
+.btn-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--teal);color:var(--navy);
+  font-weight:700;font-size:.9rem;
+  padding:.85rem 1.75rem;border-radius:10px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,201,177,.3)}
+.btn-ghost{
+  border:1.5px solid var(--border);color:var(--slate);
+  font-weight:500;font-size:.9rem;
+  padding:.85rem 1.75rem;border-radius:10px;
+  text-decoration:none;cursor:pointer;background:none;
+  transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.hero-trust{margin-top:2.5rem;display:flex;align-items:center;gap:1rem}
+.trust-avatars{display:flex}
+.trust-avatars span{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--slate2),var(--navy3));
+  border:2px solid var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:700;color:#fff;
+  margin-left:-10px;
+}
+.trust-avatars span:first-child{margin-left:0}
+.trust-text{font-size:.8rem;color:var(--slate);line-height:1.4}
+.trust-text strong{color:var(--amber);font-weight:600}
+
+/* HERO DASHBOARD */
+.hero-visual{position:relative}
+.dashboard{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+.dash-header{
+  background:var(--card2);
+  padding:.8rem 1rem;
+  display:flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid var(--border);
+}
+.dash-dot{width:10px;height:10px;border-radius:50%}
+.dash-title{font-size:.75rem;color:var(--slate);margin-left:auto;font-family:'JetBrains Mono',monospace}
+.dash-body{padding:1.25rem}
+.dash-stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.dash-stat{
+  background:var(--navy3);border-radius:10px;padding:.9rem .75rem;
+  border:1px solid var(--border);
+}
+.dash-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#fff}
+.dash-stat-num .teal{color:var(--teal)}
+.dash-stat-label{font-size:.65rem;color:var(--slate);margin-top:2px;font-family:'JetBrains Mono',monospace}
+.dash-flow{background:var(--navy3);border-radius:10px;padding:1rem;border:1px solid var(--border);margin-bottom:.75rem}
+.flow-label{font-size:.7rem;color:var(--slate);margin-bottom:.75rem;font-family:'JetBrains Mono',monospace}
+.flow-steps{display:flex;align-items:center;gap:.3rem}
+.flow-step{
+  flex:1;text-align:center;font-size:.65rem;font-weight:600;
+  padding:.4rem .2rem;border-radius:6px;
+}
+.flow-step.active{background:rgba(0,201,177,.15);color:var(--teal);border:1px solid rgba(0,201,177,.3)}
+.flow-step.done{background:rgba(0,201,177,.05);color:var(--slate2);border:1px solid var(--border)}
+.flow-step.pending{background:rgba(30,53,88,.4);color:var(--slate2);border:1px solid var(--border)}
+.flow-arrow{color:var(--slate2);font-size:.7rem}
+.dash-leads{display:flex;flex-direction:column;gap:.5rem}
+.lead-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--navy3);border-radius:8px;padding:.6rem .75rem;
+  border:1px solid var(--border);
+  animation:slideIn .4s ease forwards;opacity:0;
+}
+.lead-row:nth-child(1){animation-delay:.2s}
+.lead-row:nth-child(2){animation-delay:.5s}
+.lead-row:nth-child(3){animation-delay:.8s}
+@keyframes slideIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+.lead-name{font-size:.75rem;font-weight:600;color:var(--text)}
+.lead-status{font-size:.65rem;font-family:'JetBrains Mono',monospace}
+.status-new{color:var(--amber)}
+.status-booked{color:var(--teal)}
+.status-closed{color:#5EC96F}
+
+/* ── PROBLEM ── */
+#problem{padding:5rem 5%;background:var(--navy)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1100px;margin:0 auto}
+.problem-points{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.problem-point{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1rem 1.25rem;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  transition:border-color .2s;
+}
+.problem-point:hover{border-color:rgba(0,201,177,.3)}
+.prob-icon{width:36px;height:36px;border-radius:8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.prob-text strong{display:block;font-weight:600;color:var(--text);font-size:.9rem;margin-bottom:.2rem}
+.prob-text p{font-size:.85rem;color:var(--text-muted);margin:0}
+.solution-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:2rem;position:relative;overflow:hidden;
+}
+.solution-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--teal),transparent);
+}
+.ghl-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(0,201,177,.08);border:1px solid rgba(0,201,177,.2);
+  border-radius:8px;padding:.5rem 1rem;margin-bottom:1.25rem;
+  font-size:.8rem;font-weight:500;color:var(--teal);
+}
+.ghl-features{margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.ghl-feat{display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--text-muted)}
+.ghl-feat::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0}
+
+/* ── SERVICES ── */
+#services{background:var(--navy2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.service-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.75rem;
+  transition:all .25s;position:relative;overflow:hidden;
+  cursor:default;
+}
+.service-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0% 0%, rgba(0,201,177,.06) 0%, transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.service-card:hover{border-color:rgba(0,201,177,.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.service-card:hover::after{opacity:1}
+.svc-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(0,201,177,.1);border:1px solid rgba(0,201,177,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:1.25rem;
+}
+.svc-tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--slate2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.service-card h3{font-size:1.05rem;color:#fff;margin-bottom:.6rem}
+.service-card p{font-size:.85rem;color:var(--text-muted);line-height:1.65}
+
+/* ── HOW IT WORKS ── */
+#how{background:var(--navy)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;position:relative}
+.how-steps::before{
+  content:'';position:absolute;
+  top:28px;left:calc(16.66% + 28px);right:calc(16.66% + 28px);
+  height:1px;border-top:1px dashed var(--border);
+}
+.step{text-align:center;padding:1.5rem 1rem}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  border:1px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--teal);
+  margin:0 auto 1.25rem;
+  background:rgba(0,201,177,.06);
+}
+.step h3{color:#fff;margin-bottom:.5rem;font-size:1rem}
+.step p{font-size:.85rem;color:var(--text-muted)}
+
+/* ── RESULTS ── */
+#results{background:var(--navy2)}
+.results-inner{max-width:1100px;margin:0 auto}
+.stats-bar{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:3rem;
+}
+.stat-cell{
+  background:var(--card);padding:2rem 1.5rem;text-align:center;
+}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.4rem;color:var(--teal);line-height:1}
+.stat-unit{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--teal)}
+.stat-desc{font-size:.8rem;color:var(--text-muted);margin-top:.4rem}
+.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.testi-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.75rem;
+  position:relative;
+}
+.testi-card::before{content:'"';font-family:'Syne',sans-serif;font-size:4rem;color:var(--teal);opacity:.2;position:absolute;top:1rem;right:1.5rem;line-height:1}
+.stars{color:var(--amber);font-size:.9rem;margin-bottom:1rem;letter-spacing:2px}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:1.25rem}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--slate2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;color:var(--navy);
+}
+.testi-name{font-weight:600;font-size:.85rem;color:#fff}
+.testi-biz{font-size:.75rem;color:var(--text-muted)}
+
+/* ── PRICING ── */
+#pricing{background:var(--navy)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.price-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:2rem;
+  transition:all .2s;
+}
+.price-card.featured{
+  border-color:var(--teal);
+  background:linear-gradient(160deg,rgba(0,201,177,.07) 0%,var(--card) 60%);
+  position:relative;
+}
+.feat-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--teal);color:var(--navy);
+  font-size:.7rem;font-weight:700;padding:.3rem 1rem;border-radius:100px;
+  white-space:nowrap;
+}
+.plan-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--slate);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.plan-price{font-family:'Syne',sans-serif;font-weight:800;font-size:2.4rem;color:#fff;line-height:1;margin-bottom:.25rem}
+.plan-price sub{font-size:1rem;color:var(--slate);font-weight:400}
+.plan-note{font-size:.78rem;color:var(--text-muted);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.plan-features{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.75rem}
+.plan-feat{display:flex;align-items:flex-start;gap:.65rem;font-size:.85rem;color:var(--text-muted)}
+.plan-feat::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;margin-top:1px}
+.btn-plan{
+  width:100%;padding:.85rem;border-radius:10px;
+  font-weight:600;font-size:.9rem;text-align:center;
+  text-decoration:none;display:block;border:none;cursor:pointer;
+  transition:all .2s;
+}
+.btn-plan-ghost{background:none;border:1.5px solid var(--border);color:var(--slate)}
+.btn-plan-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-plan-solid{background:var(--teal);color:var(--navy)}
+.btn-plan-solid:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ── FAQ ── */
+#faq{background:var(--navy2)}
+.faq-list{max-width:720px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  padding:1.25rem 1.5rem;text-align:left;
+  display:flex;justify-content:space-between;align-items:center;
+  color:#fff;font-family:'Syne',sans-serif;font-weight:600;font-size:.95rem;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--teal)}
+.faq-icon{font-size:1.2rem;color:var(--teal);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+}
+.faq-a-inner{padding:0 1.5rem 1.25rem;font-size:.9rem;color:var(--text-muted);line-height:1.75}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ── CTA BANNER ── */
+#cta{
+  padding:5rem 5%;
+  background:radial-gradient(ellipse 80% 100% at 50% 50%, rgba(0,201,177,.1) 0%, transparent 70%),var(--navy);
+}
+.cta-inner{
+  max-width:700px;margin:0 auto;text-align:center;
+}
+.cta-inner h2{color:#fff;margin-bottom:1rem}
+.cta-inner p{font-size:1rem;color:var(--slate);margin-bottom:2rem}
+.cta-form{display:flex;gap:.75rem;max-width:420px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.cta-input{
+  flex:1;min-width:200px;
+  background:var(--card);border:1px solid var(--border);
+  color:#fff;padding:.85rem 1.25rem;border-radius:10px;
+  font-size:.9rem;font-family:'DM Sans',sans-serif;
+  transition:border-color .2s;outline:none;
+}
+.cta-input:focus{border-color:var(--teal)}
+.cta-input::placeholder{color:var(--slate2)}
+.cta-guarantee{font-size:.78rem;color:var(--slate2);margin-top:1rem}
+
+/* ── FOOTER ── */
+footer{
+  padding:3rem 5% 2rem;
+  background:var(--navy2);
+  border-top:1px solid var(--border);
+}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.85rem;color:var(--text-muted);margin-top:.75rem;max-width:260px;line-height:1.7}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#fff;margin-bottom:1rem;letter-spacing:.05em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul a{font-size:.83rem;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:var(--teal)}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.78rem;color:var(--slate2);
+}
+.footer-bottom a{color:var(--teal);text-decoration:none}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .how-steps{grid-template-columns:1fr}
+  .how-steps::before{display:none}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .testimonials{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .problem-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .services-grid{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr}
+  section{padding:4rem 5%}
+  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Nadine<span>.</span>Solutions</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Book Free Call →</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#how" onclick="toggleMenu()">How It Works</a>
+  <a href="#results" onclick="toggleMenu()">Results</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="#cta" onclick="toggleMenu()" class="btn-primary" style="text-align:center;margin-top:.5rem">Book Free Call →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas class="hero-grid-canvas" id="gridCanvas"></canvas>
+  <div class="hero-bg"></div>
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        GoHighLevel Automation Partner
+      </div>
+      <h1 class="hero-title">
+        Stop Chasing<br>
+        Leads Manually.<br>
+        <span class="highlight">Let AI Do It.</span>
+      </h1>
+      <p class="hero-sub">Nadine Solutions helps small businesses set up GoHighLevel CRM, AI automation, and smart workflows — so you can grow faster without hiring more people.</p>
+      <div class="btn-row">
+        <a href="#cta" class="btn-primary">Book My Free Strategy Call →</a>
+        <a href="#how" class="btn-ghost">See How It Works</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <span>MR</span><span>JL</span><span>SC</span><span>AB</span>
+        </div>
+        <div class="trust-text">
+          <strong>Small business owners</strong> already automating<br>with GoHighLevel & AI
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dashboard">
+        <div class="dash-header">
+          <div class="dash-dot" style="background:#FF5F57"></div>
+          <div class="dash-dot" style="background:#FFBD2E"></div>
+          <div class="dash-dot" style="background:#28C840"></div>
+          <span class="dash-title">Nadine Solutions CRM</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-stat-row">
+            <div class="dash-stat">
+              <div class="dash-stat-num"><span class="teal">98</span></div>
+              <div class="dash-stat-label">New Leads</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-num"><span class="teal">34</span></div>
+              <div class="dash-stat-label">Booked Calls</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-num"><span class="teal">12</span></div>
+              <div class="dash-stat-label">Closed Deals</div>
+            </div>
+          </div>
+          <div class="dash-flow">
+            <div class="flow-label">// Lead Automation Workflow</div>
+            <div class="flow-steps">
+              <div class="flow-step done">Lead In</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step active">AI Reply</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step active">Book</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step pending">Close</div>
+            </div>
+          </div>
+          <div class="flow-label" style="margin-bottom:.5rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--slate)">// Live Lead Feed</div>
+          <div class="dash-leads">
+            <div class="lead-row">
+              <span class="lead-name">Maria Santos · Salon Owner</span>
+              <span class="lead-status status-booked">✓ Call Booked</span>
+            </div>
+            <div class="lead-row">
+              <span class="lead-name">James Lim · Dental Clinic</span>
+              <span class="lead-status status-new">⚡ New Lead</span>
+            </div>
+            <div class="lead-row">
+              <span class="lead-name">Sarah Cruz · Boutique</span>
+              <span class="lead-status status-closed">★ Deal Closed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="problem-grid container">
+    <div>
+      <div class="section-tag">The Problem</div>
+      <h2>Running a small business is <span class="amber">already hard enough.</span></h2>
+      <p style="margin-top:1rem">You didn't start your business to spend hours chasing leads, sending follow-up texts at midnight, or watching potential clients slip through the cracks.</p>
+      <div class="problem-points">
+        <div class="problem-point fade-up">
+          <div class="prob-icon">⏰</div>
+          <div class="prob-text">
+            <strong>Leads go cold before you reply</strong>
+            <p>Speed-to-lead is everything. If you don't reply within 5 minutes, 80% of leads go elsewhere.</p>
+          </div>
+        </div>
+        <div class="problem-point fade-up">
+          <div class="prob-icon">📋</div>
+          <div class="prob-text">
+            <strong>Manual follow-ups are killing your time</strong>
+            <p>You're spending hours on tasks that a smart automation can handle in seconds.</p>
+          </div>
+        </div>
+        <div class="problem-point fade-up">
+          <div class="prob-icon">💸</div>
+          <div class="prob-text">
+            <strong>Money is leaking from your pipeline</strong>
+            <p>Without a system, deals fall through the cracks — and you don't even know it's happening.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="solution-card fade-up">
+        <div class="ghl-badge">⚡ Powered by GoHighLevel + AI</div>
+        <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.4rem;margin-bottom:.75rem">The platform that changes everything for small business.</h3>
+        <p style="font-size:.9rem">GoHighLevel is the #1 all-in-one CRM and marketing platform trusted by thousands of agencies. We set it up specifically for your business — no tech experience needed.</p>
+        <div class="ghl-features">
+          <div class="ghl-feat">Instant AI-powered lead responses — 24/7</div>
+          <div class="ghl-feat">Automated appointment booking & reminders</div>
+          <div class="ghl-feat">Email & SMS follow-up sequences that convert</div>
+          <div class="ghl-feat">Full CRM pipeline — see every lead's status</div>
+          <div class="ghl-feat">AI chatbot handles FAQs while you sleep</div>
+          <div class="ghl-feat">Reviews & reputation management automation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag">What We Do</div>
+    <h2>Everything you need to <span class="highlight">automate and grow.</span></h2>
+    <p style="max-width:560px;margin-top:.75rem">We don't just hand you software — we build your entire automation system from scratch, tailored to your business.</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="svc-icon">🔧</div>
+        <div class="svc-tag">Core Setup</div>
+        <h3>GHL CRM Setup & Configuration</h3>
+        <p>Full GoHighLevel account setup, customized pipelines, tags, and contact management built specifically for how your business operates.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">⚡</div>
+        <div class="svc-tag">Automation</div>
+        <h3>Lead Automation Workflows</h3>
+        <p>Instant lead response sequences, follow-up campaigns, appointment reminders, and re-engagement flows that work 24/7 without you.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">🤖</div>
+        <div class="svc-tag">AI-Powered</div>
+        <h3>AI Chatbot & Conversation AI</h3>
+        <p>Deploy GHL's Conversation AI to handle inquiries, qualify leads, and book appointments — all without human intervention.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">🎯</div>
+        <div class="svc-tag">Sales Funnels</div>
+        <h3>Landing Pages & Sales Funnels</h3>
+        <p>High-converting landing pages and sales funnels built inside GHL — fully connected to your CRM and automation workflows.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">📅</div>
+        <div class="svc-tag">Booking</div>
+        <h3>Appointment Booking System</h3>
+        <p>Set up automated calendar booking, confirmations, reminders, and follow-ups so your calendar fills itself — no back-and-forth.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="svc-icon">🛡️</div>
+        <div class="svc-tag">Ongoing Support</div>
+        <h3>Monthly Management & Support</h3>
+        <p>Ongoing optimization, new workflow builds, technical support, and strategy check-ins to keep your automation performing at its best.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">The Process</div>
+      <h2>From zero to automated in <span class="highlight">3 simple steps.</span></h2>
+      <p style="max-width:500px;margin:.75rem auto 0">We handle the entire setup — you just show up to the kickoff call and then enjoy the results.</p>
+    </div>
+    <div class="how-steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <h3>Discover</h3>
+        <p>We start with a free 30-minute strategy call to understand your business, your biggest pain points, and where automation will have the most impact.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <h3>Build</h3>
+        <p>We configure your GoHighLevel account, build your automation workflows, set up AI tools, and connect everything to your existing systems.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <h3>Launch & Scale</h3>
+        <p>We go live together, train you on the dashboard, and provide ongoing support so your automation keeps working and improving over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-inner container">
+    <div class="section-tag">Results</div>
+    <h2>What automation does for <span class="highlight">small businesses.</span></h2>
+    <div class="stats-bar" style="margin-top:2.5rem">
+      <div class="stat-cell fade-up">
+        <div class="stat-num">3<span class="stat-unit">×</span></div>
+        <div class="stat-desc">Faster lead response time</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="stat-num">80<span class="stat-unit">%</span></div>
+        <div class="stat-desc">Reduction in manual admin tasks</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="stat-num">24<span class="stat-unit">/7</span></div>
+        <div class="stat-desc">AI working on your behalf</div>
+      </div>
+      <div class="stat-cell fade-up">
+        <div class="stat-num">40<span class="stat-unit">%</span></div>
+        <div class="stat-desc">Average increase in booked appointments</div>
+      </div>
+    </div>
+    <div class="testimonials">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Before Nadine Solutions, I was manually texting every new inquiry. Now my GHL is set up to respond instantly and book appointments while I sleep. My calendar is fuller than ever and I barely had to do anything.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MS</div>
+          <div>
+            <div class="testi-name">Maria Santos</div>
+            <div class="testi-biz">Owner, Glow Beauty Salon</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">I had no idea what GoHighLevel even was before this. The team set everything up, explained it clearly, and now I have a full pipeline and automated follow-ups. It's like having an extra employee for a fraction of the cost.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JL</div>
+          <div>
+            <div class="testi-name">James Lim</div>
+            <div class="testi-biz">Owner, Prime Fitness Studio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-tag">Pricing</div>
+      <h2>Simple, transparent <span class="highlight">pricing.</span></h2>
+      <p style="max-width:480px;margin:.75rem auto 0">No surprise fees. No tech overwhelm. Just clear deliverables and real results. Not sure which is right for you? Book a free call first.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fade-up">
+        <div class="plan-name">Foundation</div>
+        <div class="plan-price">$497<sub> one-time</sub></div>
+        <div class="plan-note">Perfect for getting started with GHL</div>
+        <div class="plan-features">
+          <div class="plan-feat">Full GHL account setup & configuration</div>
+          <div class="plan-feat">1 lead automation workflow</div>
+          <div class="plan-feat">Appointment booking system</div>
+          <div class="plan-feat">CRM pipeline setup</div>
+          <div class="plan-feat">1-hour training session</div>
+          <div class="plan-feat">2 weeks post-launch support</div>
+        </div>
+        <a href="#cta" class="btn-plan btn-plan-ghost">Get Started →</a>
+      </div>
+      <div class="price-card featured fade-up">
+        <div class="feat-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">$997<sub> one-time</sub></div>
+        <div class="plan-note">Full automation setup for serious growth</div>
+        <div class="plan-features">
+          <div class="plan-feat">Everything in Foundation</div>
+          <div class="plan-feat">3 custom automation workflows</div>
+          <div class="plan-feat">AI Conversation bot setup</div>
+          <div class="plan-feat">Email + SMS follow-up sequences</div>
+          <div class="plan-feat">Landing page or funnel build</div>
+          <div class="plan-feat">Reputation/review automation</div>
+          <div class="plan-feat">30-day post-launch support</div>
+        </div>
+        <a href="#cta" class="btn-plan btn-plan-solid">Book a Call →</a>
+      </div>
+      <div class="price-card fade-up">
+        <div class="plan-name">Elite</div>
+        <div class="plan-price">$297<sub>/mo</sub></div>
+        <div class="plan-note">Ongoing management + full build included</div>
+        <div class="plan-features">
+          <div class="plan-feat">Everything in Growth (included)</div>
+          <div class="plan-feat">Ongoing automation optimization</div>
+          <div class="plan-feat">New workflows each month</div>
+          <div class="plan-feat">Monthly strategy call</div>
+          <div class="plan-feat">Priority support & response</div>
+          <div class="plan-feat">GHL updates & maintenance</div>
+        </div>
+        <a href="#cta" class="btn-plan btn-plan-ghost">Let's Talk →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="text-align:center">
+    <div class="section-tag">FAQ</div>
+    <h2>Questions we get <span class="highlight">all the time.</span></h2>
+    <div class="faq-list" style="text-align:left">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need to already have GoHighLevel?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">No — we help you sign up for GoHighLevel as part of the onboarding process. We'll guide you through everything from account creation to full setup. You don't need any prior CRM experience.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I'm not tech-savvy at all. Is this still for me?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. That's exactly who we built this for. We handle all the technical setup. Once it's done, we train you on how to use your dashboard — and most of it runs automatically anyway. You'll only need to check in occasionally.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does the setup take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Most setups are completed within 7–14 business days depending on the package and complexity. After our strategy call, we'll give you a clear timeline before we begin.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is GoHighLevel expensive on top of your fees?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">GoHighLevel starts at $97/month for their Starter plan. We can also sub-account you under our agency license in some cases, which may lower your costs. We'll discuss the best option for your budget on the strategy call.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What kinds of businesses do you work with?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">We work with small businesses across many industries — salons, fitness studios, dental & medical clinics, real estate agents, coaches, contractors, and local service businesses. If you have leads and clients, we can automate it.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if I have questions after the setup is done?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">All packages include post-launch support. Foundation gets 2 weeks, Growth gets 30 days, and Elite clients get ongoing priority support every month. We don't disappear after the build — we're in it with you.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner container">
+    <div class="section-tag" style="justify-content:center">Free Strategy Call</div>
+    <h2>Ready to put your business on <span class="highlight">autopilot?</span></h2>
+    <p>Book a free 30-minute call with us. No pressure, no pitch — just a clear roadmap of how automation can transform your business.</p>
+    <div class="cta-form">
+      <input type="email" class="cta-input" placeholder="Your email address"/>
+      <a href="mailto:hello@nadinesolutions.com" class="btn-primary" style="white-space:nowrap">Book Free Call →</a>
+    </div>
+    <div class="cta-guarantee">✓ Free — No credit card required &nbsp;·&nbsp; ✓ 30 minutes &nbsp;·&nbsp; ✓ We do the setup, you get the results</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="font-size:1.1rem">Nadine<span>.</span>Solutions</a>
+        <p>Helping small businesses unlock the power of AI automation and GoHighLevel CRM — so you can grow without the chaos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">GHL Setup</a></li>
+          <li><a href="#services">Automation Workflows</a></li>
+          <li><a href="#services">AI Chatbots</a></li>
+          <li><a href="#services">Sales Funnels</a></li>
+          <li><a href="#services">Monthly Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="#cta">Book Free Call</a></li>
+          <li><a href="mailto:hello@nadinesolutions.com">Email Us</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Nadine Solutions. All rights reserved.</span>
+      <span>Built with <a href="#">GoHighLevel</a> · Powered by AI Automation</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── GRID CANVAS ── */
+const canvas=document.getElementById('gridCanvas');
+const ctx=canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+function drawGrid(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const spacing=50;
+  ctx.strokeStyle='rgba(0,201,177,0.12)';
+  ctx.lineWidth=.5;
+  for(let x=0;x<canvas.width;x+=spacing){
+    ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,canvas.height);ctx.stroke();
+  }
+  for(let y=0;y<canvas.height;y+=spacing){
+    ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();
+  }
+  ctx.fillStyle='rgba(0,201,177,0.25)';
+  for(let x=0;x<=canvas.width;x+=spacing){
+    for(let y=0;y<=canvas.height;y+=spacing){
+      ctx.beginPath();ctx.arc(x,y,1.2,0,Math.PI*2);ctx.fill();
+    }
+  }
+}
+resizeCanvas();drawGrid();
+window.addEventListener('resize',()=>{resizeCanvas();drawGrid()});
+
+/* ── MOBILE MENU ── */
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* ── SCROLL ANIMATIONS ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:.15});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* ── FAQ ── */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+/* ── HERO STAGGER ANIMATION ── */
+const heroEls=['.hero-badge','.hero-title','.hero-sub','.btn-row','.hero-trust'];
+heroEls.forEach((sel,i)=>{
+  const el=document.querySelector(sel);
+  if(el){
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition=`opacity .6s ease ${i*.12}s, transform .6s ease ${i*.12}s`;
+    setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)'},80);
+  }
+});
+
+/* ── NAV SHRINK ON SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.padding=window.scrollY>40?'.7rem 5%':'1.1rem 5%';
+});
+</script>
+</body>
+</html>
